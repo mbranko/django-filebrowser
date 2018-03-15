@@ -270,7 +270,7 @@ class FileObject():
     def date(self):
         "Modified time (from site.storage) as float (mktime)"
         if self.exists:
-            return time.mktime(self.site.storage.modified_time(self.path).timetuple())
+            return time.mktime(self.site.storage.get_modified_time(self.path).timetuple())
         return None
 
     @property

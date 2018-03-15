@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core.files.storage import DefaultStorage, default_storage, FileSystemStorage
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
-from django.core.urlresolvers import reverse, get_urlconf, get_resolver
+from django.urls import reverse, get_urlconf, get_resolver
 from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import render, HttpResponse
 from django.template import RequestContext as Context
@@ -261,7 +261,7 @@ class FileBrowserSite(object):
     @property
     def urls(self):
         "filebrowser.site URLs"
-        return self.get_urls(), self.app_name, self.name
+        return self.get_urls(), self.app_name #, self.name
 
     def browse(self, request):
         "Browse Files/Directories."
